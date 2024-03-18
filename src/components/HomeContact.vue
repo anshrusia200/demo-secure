@@ -1,58 +1,8 @@
-<script>
-export default {
-  data() {
-    return {
-      formData: {
-        email: "",
-        name: "",
-        phone: "",
-        subject: "",
-        message: "",
-      },
-      agreedToPrivacy: false,
-      isSuccessMessage: false,
-    };
-  },
-  methods: {
-    async handleSubmit() {
-      if (!this.agreedToPrivacy) {
-        alert("Please agree to the privacy policy before submitting.");
-        return;
-      }
-
-      try {
-        const response = await fetch("https://YOUR_EMAIL_ADDRESS", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(this.formData),
-        });
-
-        if (response.ok) {
-          this.formData = {
-            email: "",
-            name: "",
-            phone: "",
-            subject: "",
-            message: "",
-          };
-          this.isSuccessMessage = true;
-        } else {
-          console.error("Failed to submit form:", response.statusText);
-          // Handle errors appropriately, e.g., display an error message to the user
-        }
-      } catch (error) {
-        console.error("Error submitting form:", error);
-        // Handle errors appropriately, e.g., display an error message to the user
-      }
-    },
-  },
-};
-</script>
+<script setup></script>
 
 <template>
   <section
+    id="section6"
     class="flex w-full items-center font-poppins h-[150vh] relative justify-end"
   >
     <div
@@ -81,7 +31,6 @@ export default {
             name="email"
             placeholder="Your Email *"
             required
-            v-model="formData.email"
             class="border-b-2 w-full border-black outline-none p-2 mb-4"
           />
         </div>
@@ -91,7 +40,6 @@ export default {
             name="name"
             placeholder="Your Name *"
             required
-            v-model="formData.name"
             class="border-b-2 w-full border-black outline-none p-2 mb-4"
           />
         </div>
@@ -101,7 +49,6 @@ export default {
             name="phone"
             placeholder="Phone Number *"
             required
-            v-model="formData.phone"
             class="border-b-2 w-full border-black outline-none p-2 mb-4"
           />
         </div>
@@ -110,13 +57,11 @@ export default {
             type="text"
             name="subject"
             placeholder="Subject"
-            v-model="formData.subject"
             class="border-b-2 w-full border-black outline-none p-2 mb-4"
           />
         </div>
         <div>
           <textarea
-            v-model="formData.message"
             id=""
             cols="23"
             rows="3"

@@ -24,7 +24,7 @@
         <div class="pt-2">
           <router-link
             :to="{ name: 'home' }"
-            @click="scrollToSection('section2')"
+            @click="scrollToSection('section3')"
           >
             Case Studies
           </router-link>
@@ -40,7 +40,7 @@
         <div class="pt-2">
           <router-link
             :to="{ name: 'home' }"
-            @click="scrollToSection('section2')"
+            @click="scrollToSection('section6')"
           >
             Contact
           </router-link>
